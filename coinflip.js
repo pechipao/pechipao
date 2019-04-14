@@ -1,6 +1,4 @@
-
-setTimeout(function() {
-	var hola = setInterval(function() {
+var hola = setInterval(function() {
 		console.log("hola2");
 	},1000)
 	
@@ -84,7 +82,7 @@ setTimeout(function() {
 	
 		setTimeout("$('#flip-standing').show();", time)
 	}
-	
+	setTimeout(function() {
 	$(document).ready(function () {
 	
 		$('#bet').keyup(maskBet);
