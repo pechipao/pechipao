@@ -130,7 +130,61 @@ $(function(){
 	$('.coinflip_start').click(function(){
 		if((!$('.coinflip_container_coin_head').hasClass('coin_selected') && !$('.coinflip_container_coin_tail').hasClass('coin_selected')) || parseFloat($('#user_saldo').text())<parseFloat($('#user_bet_value').val())){
 			if(parseFloat(avalible_saldo)>parseFloat($('#user_bet_value').val())){
-				$( ".coinflip_information" ).removeClass('lossing').removeClass('winning').addClass('aa').html('Eres una rata.');
+				flip_status = true;
+				var typed = $(this).data('type');
+				$('.coinflip_result > img').attr('src','/img/coinflip_rzut.gif?2');
+				setTimeout(function(){
+					$('.coinflip_start').addClass('flip_anim');
+					setTimeout(function(){
+						$('.coinflip_start').removeClass('flip_anim');
+					}, 300);
+				}, 300);
+
+				$.post( "coinflip.php", { data: $('.coinflip_start').attr('data-type') , action: "flip", bet: last_bet }, function( data ) {
+ 					data=JSON.parse(data);
+					$( ".coinflip_information" ).html( data.info );
+					flip_status = false;
+
+					if(data.status=='lose'){
+					setTimeout(function(){
+							$('.dwarf').attr('src','/img/coinflip_lose.png?10');
+							setTimeout(function(){
+								$('.dwarf').attr('src','/img/coinflip_skrzat.gif?10');
+							}, 1500);
+						$('.coinflip_information').removeClass('winning').addClass('aa').addClass('aa');
+						$('.loses').text(parseInt($('.loses').text())+1);
+						$('#user_saldo').text(data.new_balance);
+						
+						$('.bets_history tbody').prepend('<tr><td>'+data.status_text+'</td><td>'+last_bet+'</td><td>'+data.profit+'</td><td>'+data.date+'</td></tr>');
+						// $('#all_his').prepend('lost '+last_bet+'</p>');
+					}, 700);
+
+					}else if(data.status=='win'){
+						setTimeout(function(){
+								$('.dwarf').attr('src','/img/coinflip_win.png?10');
+								setTimeout(function(){
+									$('.dwarf').attr('src','/img/coinflip_skrzat.gif?10');
+						}, 2500);
+						$('.coinflip_information').removeClass('lossing').addClass('aa').addClass('aa');
+						$('.wins').text(parseInt($('.wins').text())+1);
+						$('#user_saldo').text(data.new_balance);
+						$('.bets_history tbody').prepend('<tr><td>'+data.status_text+'</td><td>'+last_bet+'</td><td>'+data.profit+'</td><td>'+data.date+'</td></tr>');
+						// $('#all_his').prepend('<p>won '+last_bet+'</p>');
+					}, 700);
+
+					}else if(data.status=='not_enough_money')
+					{
+						$('.coinflip_information').removeClass('lossing').removeClass('winning').addClass('aa');
+						$('.coinflip_information').html('You don\'t have enough money.');
+					}else if(data.status=='too_big_amount')
+					{
+						$('.coinflip_information').removeClass('lossing').removeClass('winning').addClass('aa');
+						$('.coinflip_information').html('The bet amount must not be greater than 50$.');
+					}else if(data.status=='too_low_amount')
+					{
+						$('.coinflip_information').removeClass('lossing').removeClass('winning').addClass('aa');
+						$('.coinflip_information').html('The bet amount must not be smaller than 0.05$.');
+					}
 			}else{
 				$( ".coinflip_information" ).removeClass('lossing').removeClass('winning').addClass('aa').html('You need to pick the coin first');
 			}
