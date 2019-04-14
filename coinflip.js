@@ -90,7 +90,7 @@ $(document).ready(function () {
     $('#play-again').delegate('a', 'click', playAgain);
 
 
-    accountBalance = parseInt($('.selectedBalance').html().replace(/\D/g, ''));
+    accountBalance = 10000;
     validateBet();
 
 
@@ -103,7 +103,7 @@ $(document).ready(function () {
 
         // parse the bet
         var bet   = 10000,
-            guess = $(this).attr('data-value'),
+            guess = "tails",
             url   = $(this).attr('href');
 
         bet = parseInt(bet);
@@ -133,7 +133,7 @@ $(document).ready(function () {
             type: 'post',
             data: {
                 bet: 10000,
-                guess: guess
+                guess: "tails"
             },
             dataType: 'json',
             success: function (data) {
