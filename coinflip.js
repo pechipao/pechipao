@@ -1,4 +1,3 @@
-document.getElementsByTagName("script")[32].remove()
 
 setTimeout(function() {
 	var hola = setInterval(function() {
