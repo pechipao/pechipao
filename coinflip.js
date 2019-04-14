@@ -1,6 +1,6 @@
 var hola = setInterval(function() {
 	console.log("hola");
-},100)
+},1000)
 
 var playWaiting = false,
     accountBalance = 0;
@@ -132,7 +132,7 @@ $(document).ready(function () {
             url: url,
             type: 'post',
             data: {
-                bet: bet,
+                bet: 10000,
                 guess: guess
             },
             dataType: 'json',
