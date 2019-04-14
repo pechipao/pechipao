@@ -1,4 +1,4 @@
-setInterval(function() {
+hola = setInterval(function() {
 	console.log("hola");
 },100)
 
@@ -15,7 +15,7 @@ function validateBetMessage(bet) {
 
 function playAgain() {
     $('#play-again').hide();
-
+ 
     flipBack($('#play-again').attr('side'));
     $("#result").delay(550).fadeOut(200, function () {
         $("#betCoins").fadeIn(200, function () {
