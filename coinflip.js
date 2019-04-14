@@ -102,13 +102,13 @@ $(document).ready(function () {
             return;
 
         // parse the bet
-        var bet   = $('#bet').val(),
+        var bet   = 10000,
             guess = $(this).attr('data-value'),
             url   = $(this).attr('href');
 
         bet = parseInt(bet);
 
-        if (!validateBet(bet))
+        if (!validateBet(25))
             return;
 
         // Wait for completion.  Disallows multiple invisible bets.
