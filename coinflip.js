@@ -90,7 +90,7 @@ $(document).ready(function () {
     $('#play-again').delegate('a', 'click', playAgain);
 
 
-    accountBalance = 10000;
+    accountBalance = parseInt($('.selectedBalance').html().replace(/\D/g, ''));
     validateBet();
 
 
@@ -102,13 +102,13 @@ $(document).ready(function () {
             return;
 
         // parse the bet
-        var bet   = 10000,
+        var bet   = $('#bet').val(),
             guess = "tails",
             url   = $(this).attr('href');
 
         bet = parseInt(bet);
 
-        if (!validateBet(25))
+        if (!validateBet(bet))
             return;
 
         // Wait for completion.  Disallows multiple invisible bets.
@@ -132,7 +132,7 @@ $(document).ready(function () {
             url: url,
             type: 'post',
             data: {
-                bet: 10000,
+                bet: bet,
                 guess: "tails"
             },
             dataType: 'json',
