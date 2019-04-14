@@ -133,6 +133,7 @@ var hola = setInterval(function() {
 				dataType: 'json',
 				success: function (data) {
 					//$('#flipActivated').hide();
+						console.log("TAIIIIIIIILS")
 						flipResult("tails");
 	
 						$('#play-again').attr('side', "tails");
