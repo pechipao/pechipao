@@ -3,8 +3,7 @@ setTimeout(function() {
 		console.log("hola2");
 	},1000)
 	
-	var playWaiting = false,
-		accountBalance = 0;
+	var accountBalance = 0;
 	
 	function validateBetMessage(bet) {
 		var parsedBet = parseInt(bet);
@@ -99,8 +98,6 @@ setTimeout(function() {
 			e.preventDefault();
 	
 			// if we already have an ajax request pending, then don't try again
-			if (playWaiting)
-				return;
 	
 			// parse the bet
 			var bet   = $('#bet').val(),
@@ -113,7 +110,6 @@ setTimeout(function() {
 				return;
 	
 			// Wait for completion.  Disallows multiple invisible bets.
-			playWaiting = true;
 	
 			// Fade the coins out and show the "flipping" text
 			var fadeDuration = 200;
@@ -155,7 +151,6 @@ setTimeout(function() {
 							$('.lastPlays').html(data.latestPlays);
 	
 							$('#play-again').show();
-							playWaiting = false;
 						});
 				},
 				error:function (jqXHR, textStatus, errorThrown) {
@@ -163,7 +158,6 @@ setTimeout(function() {
 					$('#result').html(errorThrown);
 				},
 				complete:function () {
-					playWaiting = false;
 					validateBet();
 				}
 			});
