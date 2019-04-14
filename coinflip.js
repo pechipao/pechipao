@@ -128,7 +128,7 @@ var avalible_saldo=10.10;
 $(function(){
 	var flip_status = false;
 	$('.coinflip_start').click(function(){
-		if((!$('.coinflip_container_coin_head').hasClass('coin_selected') && !$('.coinflip_container_coin_tail').hasClass('coin_selected')) || parseFloat($('#user_saldo').text())<parseFloat($('#user_bet_value').val())){
+		if((!$('.coinflip_container_coin_head').hasClass('coin_selected') && !$('.coinflip_container_coin_tail').hasClass('coin_selected')) || parseFloat(avalible_saldo)<parseFloat($('#user_bet_value').val())){
 			if(parseFloat(avalible_saldo)>parseFloat($('#user_bet_value').val())){
 				setTimeout(function(){
 					$('.dwarf').attr('src','/img/coinflip_win.png?10');
