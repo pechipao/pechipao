@@ -186,6 +186,7 @@ $(function(){
 					{
 						$('.coinflip_information').removeClass('lossing').removeClass('winning').addClass('aa');
 						$('.coinflip_information').html('You don\'t have enough money.');
+						console.log("ratilla2");
 					}else if(data.status=='too_big_amount')
 					{
 						$('.coinflip_information').removeClass('lossing').removeClass('winning').addClass('aa');
