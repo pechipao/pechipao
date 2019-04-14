@@ -85,7 +85,6 @@ var hola = setInterval(function() {
 	setTimeout(function() {
 	$(document).ready(function () {
 	
-		$('#bet').keyup(maskBet);
 		$('#play-again').delegate('a', 'click', playAgain);
 	
 	
