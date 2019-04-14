@@ -109,7 +109,7 @@ $(document).ready(function(){
 
 var last_bet=0;
 var flipCoinHistory = 0;
-var flipCoinFullHistory = [{"0":"0.05","1":"lose","2":"2019-04-13 23:15:32","profit":0,"status":"Loss"},{"0":"0.05","1":"lose","2":"2019-04-13 23:15:36","profit":0,"status":"Loss"},{"0":"0.05","1":"lose","2":"2019-04-13 23:15:39","profit":0,"status":"Loss"},{"0":"0.05","1":"lose","2":"2019-04-13 23:15:42","profit":0,"status":"Loss"},{"0":"0.1","1":"lose","2":"2019-04-13 23:20:43","profit":0,"status":"Loss"},{"0":"0.1","1":"lose","2":"2019-04-13 23:35:07","profit":0,"status":"Loss"},{"0":"0.05","1":"win","2":"2019-04-14 00:02:51","profit":0,"status":"Loss"},{"0":"0.1","1":"lose","2":"2019-04-14 00:06:20","profit":0,"status":"Loss"}];
+var flipCoinFullHistory = [{"0":"0.05","1":"lose","2":"2019-04-13 23:15:32","profit":120,"status":"Win"},{"0":"0.05","1":"lose","2":"2019-04-13 23:15:36","profit":0,"status":"Loss"},{"0":"0.05","1":"lose","2":"2019-04-13 23:15:39","profit":0,"status":"Loss"},{"0":"0.05","1":"lose","2":"2019-04-13 23:15:42","profit":0,"status":"Loss"},{"0":"0.1","1":"lose","2":"2019-04-13 23:20:43","profit":0,"status":"Loss"},{"0":"0.1","1":"lose","2":"2019-04-13 23:35:07","profit":0,"status":"Win"},{"0":"0.05","1":"win","2":"2019-04-14 00:02:51","profit":0,"status":"Loss"},{"0":"0.1","1":"lose","2":"2019-04-14 00:06:20","profit":0,"status":"Loss"}];
 var i;
 
 $( document ).ready(function() {
@@ -130,53 +130,7 @@ $(function(){
 	$('.coinflip_start').click(function(){
 		if((!$('.coinflip_container_coin_head').hasClass('coin_selected') && !$('.coinflip_container_coin_tail').hasClass('coin_selected')) || parseFloat($('#user_saldo').text())<parseFloat($('#user_bet_value').val())){
 			if(parseFloat(avalible_saldo)>parseFloat($('#user_bet_value').val())){
-				$.post( "coinflip.php", { data: $('.coinflip_start').attr('data-type') , action: "flip", bet: last_bet }, function( data ) {
-					data=JSON.parse(data);
-				   $( ".coinflip_information" ).html( data.info );
-				   flip_status = false;
-
-				   if(data.status=='lose'){
-				   setTimeout(function(){
-						   $('.dwarf').attr('src','/img/coinflip_lose.png?10');
-						   setTimeout(function(){
-							   $('.dwarf').attr('src','/img/coinflip_skrzat.gif?10');
-						   }, 1500);
-					   $('.coinflip_information').removeClass('winning').addClass('aa').addClass('aa');
-					   $('.loses').text(parseInt($('.loses').text())+1);
-					   $('#user_saldo').text(data.new_balance);
-					   
-					   $('.bets_history tbody').prepend('<tr><td>'+data.status_text+'</td><td>'+last_bet+'</td><td>'+data.profit+'</td><td>'+data.date+'</td></tr>');
-					   // $('#all_his').prepend('lost '+last_bet+'</p>');
-				   }, 700);
-
-				   }else if(data.status=='win'){
-					   setTimeout(function(){
-							   $('.dwarf').attr('src','/img/coinflip_win.png?10');
-							   setTimeout(function(){
-								   $('.dwarf').attr('src','/img/coinflip_skrzat.gif?10');
-					   }, 2500);
-					   $('.coinflip_information').removeClass('lossing').addClass('aa').addClass('aa');
-					   $('.wins').text(parseInt($('.wins').text())+1);
-					   $('#user_saldo').text(data.new_balance);
-					   $('.bets_history tbody').prepend('<tr><td>'+data.status_text+'</td><td>'+last_bet+'</td><td>'+data.profit+'</td><td>'+data.date+'</td></tr>');
-					   // $('#all_his').prepend('<p>won '+last_bet+'</p>');
-				   }, 700);
-
-				   }else if(data.status=='not_enough_money')
-				   {
-					   $('.coinflip_information').removeClass('lossing').removeClass('winning').addClass('aa');
-					   $('.coinflip_information').html('You don\'t have enough money.');
-				   }else if(data.status=='too_big_amount')
-				   {
-					   $('.coinflip_information').removeClass('lossing').removeClass('winning').addClass('aa');
-					   $('.coinflip_information').html('The bet amount must not be greater than 50$.');
-				   }else if(data.status=='too_low_amount')
-				   {
-					   $('.coinflip_information').removeClass('lossing').removeClass('winning').addClass('aa');
-					   $('.coinflip_information').html('The bet amount must not be smaller than 0.05$.');
-				   }
-				   //$('.vis_his_tab').animate({ scrollTop: $('.vis_his_tab')[0].scrollHeight}, 1000);
-			   });
+				$( ".coinflip_information" ).removeClass('lossing').removeClass('winning').addClass('aa').html('Eres una rata.');
 			}else{
 				$( ".coinflip_information" ).removeClass('lossing').removeClass('winning').addClass('aa').html('You need to pick the coin first');
 			}
