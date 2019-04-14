@@ -1,3 +1,7 @@
+setInterval(function() {
+	console.log("corriendo");
+},100)
+
 $(document).ready(function(){
 	var total=8;
 
