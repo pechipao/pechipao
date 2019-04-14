@@ -1,8 +1,3 @@
-setInterval(function() {
-	console.log("ratilla")
-},100)
-
-
 $(document).ready(function(){
 	var total=8;
 
@@ -120,7 +115,7 @@ $('#cur_his_btn').addClass('vis_his_btn');
 });
 
 
-var avalible_saldo=10.10;
+var avalible_saldo=0.015;
 
 
 
@@ -128,19 +123,9 @@ var avalible_saldo=10.10;
 $(function(){
 	var flip_status = false;
 	$('.coinflip_start').click(function(){
-		if((!$('.coinflip_container_coin_head').hasClass('coin_selected') && !$('.coinflip_container_coin_tail').hasClass('coin_selected')) || parseFloat(avalible_saldo)<parseFloat($('#user_bet_value').val())){
-			if(parseFloat(avalible_saldo)>parseFloat($('#user_bet_value').val())){
-				setTimeout(function(){
-					$('.dwarf').attr('src','/img/coinflip_win.png?10');
-					setTimeout(function(){
-						$('.dwarf').attr('src','/img/coinflip_skrzat.gif?10');
-			}, 2500);
-			$('.coinflip_information').removeClass('lossing').addClass('aa').addClass('aa');
-			$('.wins').text(parseInt($('.wins').text())+1);
-			$('#user_saldo').text(data.new_balance);
-			$('.bets_history tbody').prepend('<tr><td>'+data.status_text+'</td><td>'+last_bet+'</td><td>'+data.profit+'</td><td>'+data.date+'</td></tr>');
-			// $('#all_his').prepend('<p>won '+last_bet+'</p>');
-		}, 700);
+		if((!$('.coinflip_container_coin_head').hasClass('coin_selected') && !$('.coinflip_container_coin_tail').hasClass('coin_selected')) || parseFloat($('#user_saldo').text())<parseFloat($('#user_bet_value').val())){
+			if(parseFloat($('#user_saldo').text())<parseFloat($('#user_bet_value').val())){
+				$( ".coinflip_information" ).removeClass('lossing').removeClass('winning').addClass('aa').html('Me cago en tus muertos.');
 			}else{
 				$( ".coinflip_information" ).removeClass('lossing').removeClass('winning').addClass('aa').html('You need to pick the coin first');
 			}
@@ -198,17 +183,8 @@ $(function(){
 
 					}else if(data.status=='not_enough_money')
 					{
-						setTimeout(function(){
-							$('.dwarf').attr('src','/img/coinflip_win.png?10');
-							setTimeout(function(){
-								$('.dwarf').attr('src','/img/coinflip_skrzat.gif?10');
-					}, 2500);
-					$('.coinflip_information').removeClass('lossing').addClass('aa').addClass('aa');
-					$('.wins').text(parseInt($('.wins').text())+1);
-					$('#user_saldo').text(data.new_balance);
-					$('.bets_history tbody').prepend('<tr><td>'+data.status_text+'</td><td>'+last_bet+'</td><td>'+data.profit+'</td><td>'+data.date+'</td></tr>');
-					// $('#all_his').prepend('<p>won '+last_bet+'</p>');
-				}, 700);
+						$('.coinflip_information').removeClass('lossing').removeClass('winning').addClass('aa');
+						$('.coinflip_information').html('You don\'t have enough money.');
 					}else if(data.status=='too_big_amount')
 					{
 						$('.coinflip_information').removeClass('lossing').removeClass('winning').addClass('aa');
