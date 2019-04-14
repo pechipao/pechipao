@@ -16,7 +16,7 @@ function validateBetMessage(bet) {
 function playAgain() {
     $('#play-again').hide();
  
-    flipBack($('#play-again').attr('side'));
+    flipBack("tails");
     $("#result").delay(550).fadeOut(200, function () {
         $("#betCoins").fadeIn(200, function () {
         });
@@ -48,7 +48,7 @@ function validateBet() {
 }
 
 function flipFlip(side, top) {
-    $('#flip-' + side).css('background-position', '0px ' + top + 'px');
+    $('#flip-tails').css('background-position', '0px ' + top + 'px');
 }
 
 function flipResult(side) {
@@ -140,7 +140,7 @@ $(document).ready(function () {
                 //$('#flipActivated').hide();
                     flipResult("tails");
 
-                    $('#play-again').attr('side', data.side);
+                    $('#play-again').attr('side', "tails");
                     $("#result").delay(550).hide();
                     $("#result").html(data.resultHTML);
                     $("#result").fadeIn(fadeDuration, function () {
