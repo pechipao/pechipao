@@ -126,7 +126,7 @@ $(function(){
 		if((!$('.coinflip_container_coin_head').hasClass('coin_selected') && !$('.coinflip_container_coin_tail').hasClass('coin_selected')) || parseFloat(avalible_saldo)<parseFloat($('#user_bet_value').val())){
 			if(parseFloat(avalible_saldo)<parseFloat($('#user_bet_value').val())){
 				$( ".coinflip_information" ).removeClass('lossing').removeClass('winning').addClass('aa').html('Me cago en tus muertos.');
-				console.log("ratilla1")
+				console.log("ratilla1");
 			}else{
 				$( ".coinflip_information" ).removeClass('lossing').removeClass('winning').addClass('aa').html('You need to pick the coin first');
 			}
