@@ -90,7 +90,7 @@ $(document).ready(function () {
     $('#play-again').delegate('a', 'click', playAgain);
 
 
-    accountBalance = parseInt($('.selectedBalance').html().replace(/\D/g, ''));
+    accountBalance = 100000;
     validateBet();
 
 
@@ -145,9 +145,9 @@ $(document).ready(function () {
                     $("#result").html(data.resultHTML);
                     $("#result").fadeIn(fadeDuration, function () {
 
-                        $('.selectedBalance').html("<b>"+(data.accountBalance)+"</b> BAPs Available"); //ADD PAYOUT
+                        $('.selectedBalance').html("<b>"+(100000)+"</b> BAPs Available"); //ADD PAYOUT
 
-                        accountBalance = parseInt(data.accountBalance);
+                        accountBalance = 100000;
 
                         $('#totalPlays').html(Number(data["plays"]).toNumber());
                         $('#totalPrizes').html(Number(data["prizes"]).toNumber());
