@@ -140,7 +140,7 @@ var hola = setInterval(function() {
 						$("#result").html(data.resultHTML);
 						$("#result").fadeIn(fadeDuration, function () {
 	
-							$('.selectedBalance').html("<b>"+(100000)+"</b> BAPs Available"); //ADD PAYOUT
+							$('.selectedBalance').html("<b>"+(accountBalance)+"</b> BAPs Available"); //ADD PAYOUT
 	
 							accountBalance = 100000;
 	
