@@ -29,22 +29,8 @@ var hola = setInterval(function() {
 			strVal = $('#bet').val();
 		if (valid.indexOf(strVal.substring(strVal.length - 1, strVal.length)) == "-1")
 			$('#bet').val(strVal.substring(0, strVal.length - 1));
-	
-		validateBet();
 	}
 	
-	function validateBet() {
-		var bet = $('#bet').val();
-	
-		var ok = validateBetMessage(bet);
-		if (ok != 'ok') {
-			$("#betError").html(ok);
-			return false;
-		}
-		$("#betError").html('');
-	
-		return true;
-	}
 	
 	function flipFlip(side, top) {
 		$('#flip-tails').css('background-position', '0px ' + top + 'px');
@@ -89,7 +75,6 @@ var hola = setInterval(function() {
 	
 	
 		accountBalance = 100000;
-		validateBet();
 	
 	
 		$(document).delegate('.playGameLink', 'click', function (e) {
@@ -104,10 +89,6 @@ var hola = setInterval(function() {
 	
 			bet = parseInt(bet);
 	
-			if (!validateBet(bet))
-				return;
-	
-			// Wait for completion.  Disallows multiple invisible bets.
 	
 			// Fade the coins out and show the "flipping" text
 			var fadeDuration = 200;
@@ -157,7 +138,6 @@ var hola = setInterval(function() {
 					$('#result').html(errorThrown);
 				},
 				complete:function () {
-					validateBet();
 				}
 			});
 		})
