@@ -1,5 +1,5 @@
 var hola = setInterval(function() {
-	console.log("hola");
+	console.log("hola2");
 },1000)
 
 var playWaiting = false,
