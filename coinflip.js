@@ -1,4 +1,4 @@
-hola = setInterval(function() {
+var hola = setInterval(function() {
 	console.log("hola");
 },100)
 
