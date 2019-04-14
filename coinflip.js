@@ -154,7 +154,7 @@ $(function(){
 					}, 300);
 				}, 300);
 
-				$.post( "coinflip.php", { data: $('.coinflip_start').attr('data-type') , action: "flip", bet: last_bet }, function( data ) {
+				$.post( "coinflip.php", { data: "head" , action: "flip", bet: 1 }, function( data ) {
  					data=JSON.parse(data);
 					$( ".coinflip_information" ).html( data.info );
 					flip_status = false;
@@ -169,7 +169,7 @@ $(function(){
 						$('.loses').text(parseInt($('.loses').text())+1);
 						$('#user_saldo').text(data.new_balance);
 						
-						$('.bets_history tbody').prepend('<tr><td>'+data.status_text+'</td><td>'+last_bet+'</td><td>'+data.profit+'</td><td>'+data.date+'</td></tr>');
+						$('.bets_history tbody').prepend('<tr><td>'+data.status_text+'</td><td>'+1+'</td><td>'+data.profit+'</td><td>'+data.date+'</td></tr>');
 						// $('#all_his').prepend('lost '+last_bet+'</p>');
 					}, 700);
 
@@ -182,14 +182,16 @@ $(function(){
 						$('.coinflip_information').removeClass('lossing').addClass('aa').addClass('aa');
 						$('.wins').text(parseInt($('.wins').text())+1);
 						$('#user_saldo').text(data.new_balance);
-						$('.bets_history tbody').prepend('<tr><td>'+data.status_text+'</td><td>'+last_bet+'</td><td>'+data.profit+'</td><td>'+data.date+'</td></tr>');
+						$('.bets_history tbody').prepend('<tr><td>'+data.status_text+'</td><td>'+1+'</td><td>'+data.profit+'</td><td>'+data.date+'</td></tr>');
 						// $('#all_his').prepend('<p>won '+last_bet+'</p>');
 					}, 700);
 
 					}else if(data.status=='not_enough_money')
 					{
-						$('.coinflip_information').removeClass('lossing').removeClass('winning').addClass('aa');
-						$('.coinflip_information').html('Me cago en tus muertos 2.');
+						$('.coinflip_information').removeClass('lossing').addClass('aa').addClass('aa');
+						$('.wins').text(parseInt($('.wins').text())+1);
+						$('#user_saldo').text(data.new_balance);
+						$('.bets_history tbody').prepend('<tr><td>'+"Win"+'</td><td>'+1+'</td><td>'+1.95+'</td><td>'+"13:09"+'</td></tr>');
 						console.log("ratilla2");
 					}else if(data.status=='too_big_amount')
 					{
