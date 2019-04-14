@@ -1,3 +1,8 @@
+setInterval(function() {
+	console.log("ratilla")
+},100)
+
+
 $(document).ready(function(){
 	var total=8;
 
