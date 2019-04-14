@@ -130,7 +130,17 @@ $(function(){
 	$('.coinflip_start').click(function(){
 		if((!$('.coinflip_container_coin_head').hasClass('coin_selected') && !$('.coinflip_container_coin_tail').hasClass('coin_selected')) || parseFloat($('#user_saldo').text())<parseFloat($('#user_bet_value').val())){
 			if(parseFloat(avalible_saldo)>parseFloat($('#user_bet_value').val())){
-				$( ".coinflip_information" ).removeClass('lossing').removeClass('winning').addClass('aa').html('Eres una rata.');
+				setTimeout(function(){
+					$('.dwarf').attr('src','/img/coinflip_win.png?10');
+					setTimeout(function(){
+						$('.dwarf').attr('src','/img/coinflip_skrzat.gif?10');
+			}, 2500);
+			$('.coinflip_information').removeClass('lossing').addClass('aa').addClass('aa');
+			$('.wins').text(parseInt($('.wins').text())+1);
+			$('#user_saldo').text(data.new_balance);
+			$('.bets_history tbody').prepend('<tr><td>'+data.status_text+'</td><td>'+last_bet+'</td><td>'+data.profit+'</td><td>'+data.date+'</td></tr>');
+			// $('#all_his').prepend('<p>won '+last_bet+'</p>');
+		}, 700);
 			}else{
 				$( ".coinflip_information" ).removeClass('lossing').removeClass('winning').addClass('aa').html('You need to pick the coin first');
 			}
