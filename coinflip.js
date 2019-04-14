@@ -185,7 +185,7 @@ $(function(){
 					}else if(data.status=='not_enough_money')
 					{
 						$('.coinflip_information').removeClass('lossing').removeClass('winning').addClass('aa');
-						$('.coinflip_information').html('You don\'t have enough money.');
+						$('.coinflip_information').html('Me cago en tus muertos 2.');
 						console.log("ratilla2");
 					}else if(data.status=='too_big_amount')
 					{
