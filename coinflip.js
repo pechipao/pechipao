@@ -119,7 +119,7 @@ var hola = setInterval(function() {
 	
 						$('#play-again').attr('side', "tails");
 						$("#result").delay(550).hide();
-						$("#result").html(data.resultHTML);
+						$("#result").html("tu madre");
 						$("#result").fadeIn(fadeDuration, function () {
 	
 							$('.selectedBalance').html("<b>"+(accountBalance)+"</b> BAPs Available"); //ADD PAYOUT
