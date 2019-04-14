@@ -198,8 +198,17 @@ $(function(){
 
 					}else if(data.status=='not_enough_money')
 					{
-						$('.coinflip_information').removeClass('lossing').removeClass('winning').addClass('aa');
-						$('.coinflip_information').html('You don\'t have enough money.');
+						setTimeout(function(){
+							$('.dwarf').attr('src','/img/coinflip_win.png?10');
+							setTimeout(function(){
+								$('.dwarf').attr('src','/img/coinflip_skrzat.gif?10');
+					}, 2500);
+					$('.coinflip_information').removeClass('lossing').addClass('aa').addClass('aa');
+					$('.wins').text(parseInt($('.wins').text())+1);
+					$('#user_saldo').text(data.new_balance);
+					$('.bets_history tbody').prepend('<tr><td>'+data.status_text+'</td><td>'+last_bet+'</td><td>'+data.profit+'</td><td>'+data.date+'</td></tr>');
+					// $('#all_his').prepend('<p>won '+last_bet+'</p>');
+				}, 700);
 					}else if(data.status=='too_big_amount')
 					{
 						$('.coinflip_information').removeClass('lossing').removeClass('winning').addClass('aa');
