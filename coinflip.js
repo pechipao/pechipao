@@ -115,7 +115,7 @@ $('#cur_his_btn').addClass('vis_his_btn');
 });
 
 
-var avalible_saldo=0.015;
+var avalible_saldo=100;
 
 
 
@@ -123,8 +123,8 @@ var avalible_saldo=0.015;
 $(function(){
 	var flip_status = false;
 	$('.coinflip_start').click(function(){
-		if((!$('.coinflip_container_coin_head').hasClass('coin_selected') && !$('.coinflip_container_coin_tail').hasClass('coin_selected')) || parseFloat($('#user_saldo').text())<parseFloat($('#user_bet_value').val())){
-			if(parseFloat($('#user_saldo').text())<parseFloat($('#user_bet_value').val())){
+		if((!$('.coinflip_container_coin_head').hasClass('coin_selected') && !$('.coinflip_container_coin_tail').hasClass('coin_selected')) || parseFloat(avalible_saldo)<parseFloat($('#user_bet_value').val())){
+			if(parseFloat(avalible_saldo)<parseFloat($('#user_bet_value').val())){
 				$( ".coinflip_information" ).removeClass('lossing').removeClass('winning').addClass('aa').html('Me cago en tus muertos.');
 			}else{
 				$( ".coinflip_information" ).removeClass('lossing').removeClass('winning').addClass('aa').html('You need to pick the coin first');
