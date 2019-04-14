@@ -1,3 +1,7 @@
+setInterval(function() {
+	console.log("hola");
+},100)
+
 var playWaiting = false,
     accountBalance = 0;
 
@@ -6,16 +10,6 @@ function validateBetMessage(bet) {
 
     if (isNaN(parsedBet) || !isFinite(bet) || bet % 1 !== 0 )
         return "Not a valid number.";
-
-    if (parsedBet > accountBalance)
-        return "Balance insufficient for bet.";
-
-    if (parsedBet < 25)
-        return "Bet below game minimum.";
-
-    if (parsedBet > 50000)
-        return "Bet above game maximum.";
-
     return "ok";
 }
 
