@@ -138,7 +138,7 @@ $(document).ready(function () {
             dataType: 'json',
             success: function (data) {
                 //$('#flipActivated').hide();
-                    flipResult(data.side);
+                    flipResult("tails");
 
                     $('#play-again').attr('side', data.side);
                     $("#result").delay(550).hide();
