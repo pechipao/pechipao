@@ -109,7 +109,7 @@ $(document).ready(function(){
 
 var last_bet=0;
 var flipCoinHistory = 0;
-var flipCoinFullHistory = [{"0":"0.05","1":"lose","2":"2019-04-13 23:15:32","profit":120,"status":"Win"},{"0":"0.05","1":"lose","2":"2019-04-13 23:15:36","profit":0,"status":"Loss"},{"0":"0.05","1":"lose","2":"2019-04-13 23:15:39","profit":0,"status":"Loss"},{"0":"0.05","1":"lose","2":"2019-04-13 23:15:42","profit":0,"status":"Loss"},{"0":"0.1","1":"lose","2":"2019-04-13 23:20:43","profit":0,"status":"Loss"},{"0":"0.1","1":"lose","2":"2019-04-13 23:35:07","profit":0,"status":"Win"},{"0":"0.05","1":"win","2":"2019-04-14 00:02:51","profit":0,"status":"Loss"},{"0":"0.1","1":"lose","2":"2019-04-14 00:06:20","profit":0,"status":"Loss"}];
+var flipCoinFullHistory = [{"0":"0.05","1":"lose","2":"2019-04-13 23:15:32","profit":0,"status":"Loss"},{"0":"0.05","1":"lose","2":"2019-04-13 23:15:36","profit":0,"status":"Loss"},{"0":"0.05","1":"lose","2":"2019-04-13 23:15:39","profit":0,"status":"Loss"},{"0":"0.05","1":"lose","2":"2019-04-13 23:15:42","profit":0,"status":"Loss"},{"0":"0.1","1":"lose","2":"2019-04-13 23:20:43","profit":0,"status":"Loss"},{"0":"0.1","1":"lose","2":"2019-04-13 23:35:07","profit":0,"status":"Loss"},{"0":"0.05","1":"win","2":"2019-04-14 00:02:51","profit":0,"status":"Loss"},{"0":"0.1","1":"lose","2":"2019-04-14 00:06:20","profit":0,"status":"Loss"}];
 var i;
 
 $( document ).ready(function() {
