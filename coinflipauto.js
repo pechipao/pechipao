@@ -6,38 +6,38 @@ var nivel = 0;
 
 function automatizar() {
     boton.click();
-    if (texto.innerHTML = "Unfortunately you lose. Try again.") {
+    if (texto.innerHTML == "Unfortunately you lose. Try again.") {
         apuesta = "0.06";
         setTimeout(function() {
-            if (texto.innerHTML = "Unfortunately you lose. Try again.") {
+            if (texto.innerHTML == "Unfortunately you lose. Try again.") {
                 apuesta = "0.11";
                 boton.click();
                 setTimeout(function() {
-                    if (texto.innerHTML = "Unfortunately you lose. Try again.") {
+                    if (texto.innerHTML == "Unfortunately you lose. Try again.") {
                         apuesta = "0.22";
                         boton.click();
                         setTimeout(function() {
-                            if (texto.innerHTML = "Unfortunately you lose. Try again.") {
+                            if (texto.innerHTML == "Unfortunately you lose. Try again.") {
                                 apuesta = "0.44";
                                 boton.click();
                                 setTimeout(function() {
-                                    if (texto.innerHTML = "Unfortunately you lose. Try again.") {
+                                    if (texto.innerHTML == "Unfortunately you lose. Try again.") {
                                         apuesta = "0.88";
                                         boton.click();
                                         setTimeout(function() {
-                                            if (texto.innerHTML = "Unfortunately you lose. Try again.") {
+                                            if (texto.innerHTML == "Unfortunately you lose. Try again.") {
                                                 apuesta = "1.76";
                                                 boton.click();
                                                 setTimeout(function() {
-                                                    if (texto.innerHTML = "Unfortunately you lose. Try again.") {
+                                                    if (texto.innerHTML == "Unfortunately you lose. Try again.") {
                                                         apuesta = "3.52";
                                                         boton.click();
                                                         setTimeout(function() {
-                                                            if (texto.innerHTML = "Unfortunately you lose. Try again.") {
+                                                            if (texto.innerHTML == "Unfortunately you lose. Try again.") {
                                                                 apuesta = "7";
                                                                 boton.click();
                                                                 setTimeout(function() {
-                                                                    if (texto.innerHTML = "Unfortunately you lose. Try again.") {
+                                                                    if (texto.innerHTML == "Unfortunately you lose. Try again.") {
                                                                         apuesta = "0.05";
                                                                         boton.click();
                                                                     }
