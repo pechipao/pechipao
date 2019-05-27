@@ -10,6 +10,7 @@ function automatizar() {
     setTimeout(function() {
         if (texto.innerHTML == "Unfortunately you lose. Try again.") {
             document.getElementById("user_bet_value").value = "0.06";
+            boton.click();
             setTimeout(function() {
                 if (texto.innerHTML == "Unfortunately you lose. Try again.") {
                     document.getElementById("user_bet_value").value = "0.11";
